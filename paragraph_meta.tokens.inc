@@ -13,8 +13,7 @@ use Drupal\Core\Render\BubbleableMetadata;
 /**
  * Impements hook_token_info_alter().
  */
-function paragraph_meta_token_info_alter(&$data)
-{
+function paragraph_meta_token_info_alter(&$data) {
     $data['tokens']['node']['paragraph_meta_smart_title'] = [
     'name' => t('Paragraph Meta: Smart Title'),
     'description' => t('Will determine the best title to use for representing this entity. Example: [node:paragraph_meta_smart_title:value]'),
@@ -35,8 +34,7 @@ function paragraph_meta_token_info_alter(&$data)
 /**
  * Implements hook_tokens().
  */
-function paragraph_meta_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata)
-{
+function paragraph_meta_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
     $token_service = \Drupal::token();
     $replacements = [];
     if ($type == 'node' && !empty($data['node'])) {
@@ -233,8 +231,7 @@ function paragraph_meta_smart_data(ContentEntityInterface $entity, $field_type, 
 /**
  * Given a field, locate an image field.
  */
-function paragraph_meta_smart_find(FieldItemListInterface $field, $field_type, $path = [])
-{
+function paragraph_meta_smart_find(FieldItemListInterface $field, $field_type, $path = []) {
     if (!$field->isEmpty()) {
         switch ($field->getFieldDefinition()->getType()) {
         case 'text_long':
