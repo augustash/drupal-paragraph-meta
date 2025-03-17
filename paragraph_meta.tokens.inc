@@ -129,8 +129,7 @@ function paragraph_meta_tokens($type, $tokens, array $data, array $options, Bubb
 /**
  * Smart description fallback.
  */
-function paragraph_meta_smart_title_fallback($replacements, array $found_tokens, array $data)
-{
+function paragraph_meta_smart_title_fallback($replacements, array $found_tokens, array $data) {
     foreach ($found_tokens as $key => $value) {
         if (!empty($data['node'])) {
             if (\Drupal::service('path.matcher')->isFrontPage()) {
@@ -147,8 +146,7 @@ function paragraph_meta_smart_title_fallback($replacements, array $found_tokens,
 /**
  * Smart image fallback.
  */
-function paragraph_meta_smart_image_fallback($replacements, array $found_tokens, array $data)
-{
+function paragraph_meta_smart_image_fallback($replacements, array $found_tokens, array $data) {
     // Handle fallbacks.
     // @todo Open this open to other modules.
     if (\Drupal::moduleHandler()->moduleExists('real_favicon')) {
@@ -179,8 +177,7 @@ function paragraph_meta_smart_description_fallback($replacements, array $found_t
  * @param \Drupal\Core\Entity\ContentEntityInterface $entity
  *   The entity.
  */
-function paragraph_meta_smart_data(ContentEntityInterface $entity, $field_type, $base_fields = [])
-{
+function paragraph_meta_smart_data(ContentEntityInterface $entity, $field_type, $base_fields = []) {
     $cache = &drupal_static(__FUNCTION__, []);
     $key = implode(
         '_', [
