@@ -37,9 +37,7 @@ function paragraph_meta_tokens($type, $tokens, array $data, array $options, Bubb
   $token_service = \Drupal::token();
   $replacements = [];
   if ($type == 'node' && !empty($data['node'])) {
-    /**
-* @var \Drupal\node\NodeInterface $node
-*/
+    /** @var \Drupal\node\NodeInterface $node */
     $node = $data['node'];
     $lookup = [
       // Smart title.
@@ -177,19 +175,14 @@ function paragraph_meta_smart_description_fallback($replacements, array $found_t
  */
 function paragraph_meta_smart_data(ContentEntityInterface $entity, $field_type, $base_fields = []) {
   $cache = &drupal_static(__FUNCTION__, []);
-  $key = implode(
-        '_', [
-          $entity->getEntityTypeId(),
-          $entity->id(),
-          $field_type,
-          implode('_', $base_fields),
-        ]
-    );
-
+  $key = implode('_', [
+    $entity->getEntityTypeId(),
+    $entity->id(),
+    $field_type,
+    implode('_', $base_fields),
+  ]);
   if (!isset($cache[$key])) {
     $data = [];
-
-    // Step 1: Look in base fields of the entity.
     foreach ($base_fields as $fieldname) {
       $parts = explode(':', $fieldname, 2);
       $fieldname = $parts[0];
@@ -203,8 +196,6 @@ function paragraph_meta_smart_data(ContentEntityInterface $entity, $field_type, 
         }
       }
     }
-
-    // Step 2: If no match, search in paragraph components.
     if (empty($data)) {
       foreach ($entity->getFields() as $field) {
         if ($field->getFieldDefinition()->getType() === 'entity_reference_revisions') {
@@ -216,10 +207,8 @@ function paragraph_meta_smart_data(ContentEntityInterface $entity, $field_type, 
         }
       }
     }
-
     $cache[$key] = $data;
   }
-
   return $cache[$key];
 }
 
