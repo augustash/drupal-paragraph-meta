@@ -1,0 +1,22 @@
+{
+  "name": "augustash/paragraph_meta",
+  "description": "Adds a set of tokens for use in MetaTag fields.",
+  "type": "drupal-module",
+  "license": "proprietary",
+  "homepage": "https://github.com/augustash/drupal-paragraph-meta",
+  "authors": [
+    {
+      "name": "Jacob Weber",
+      "email": "jweber@augustash.com",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/augustash/drupal-paragraph-meta/issues",
+    "source": "https://github.com/augustash/drupal-paragraph-meta"
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "drupal/core": "^8.8 || ^9"
+  }
+}
