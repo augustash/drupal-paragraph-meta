@@ -2,4 +2,4 @@ name: 'Paragraph MetaTag Tokens'
 type: module
 description: 'Metatag token support for paragraphs.'
 package: Custom
-core_version_requirement: '^9.3 || ^10'
+core_version_requirement: '^9.3 || ^10 || ^11'
